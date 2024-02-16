@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './homePage/homePage'
+import HomePage from './homePage/homePage';
 import AdminPage from './adminPortal/admin'
 import StudentPage from './studentPortal/studentPortal'
 import TeacherPage from './teacherPortal/teacherPortal'
