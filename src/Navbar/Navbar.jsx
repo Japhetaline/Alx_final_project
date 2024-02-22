@@ -30,7 +30,7 @@ function Navbar() {
         </div>
 
         <div className="side-menu">
-          <Link to="/student">
+          <Link to="/student_login">
             <FaUserGraduate color='white' />
             <span>Student</span>
           </Link>

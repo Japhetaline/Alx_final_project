@@ -2,8 +2,10 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './homePage/homePage';
 import AdminPage from './adminPortal/admin'
-import StudentPage from './studentPortal/studentPortal'
-import TeacherPage from './teacherPortal/teacherPortal'
+import StudentLogin from './studentPortal/Login'
+import StudentSignup from './studentPortal/SignUp'
+import StudentDashboard from './studentPortal/Dashboard'
+// import TeacherPage from './teacherPortal//TeacherSignIn/teacherSignIn'
 import './App.css'
 
 function App() {
@@ -15,8 +17,10 @@ function App() {
       <Routes>
       <Route path="/" exact element={<HomePage />} />
       <Route path="/admin" element={<AdminPage />} />
-      <Route path="/student" element={<StudentPage />} />
-      <Route path="/teacher" element={<TeacherPage />} />
+      <Route path="/student_signup" element={<StudentSignup />} />
+      <Route path="/student_login" element={<StudentLogin />} />
+      <Route path="/student_dashboard" element={<StudentDashboard />} />
+      {/* <Route path="/teacher" element={<TeacherPage />} /> */}
       </Routes>
      </div>
      </BrowserRouter>

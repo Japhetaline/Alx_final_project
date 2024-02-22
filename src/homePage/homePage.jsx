@@ -16,7 +16,7 @@ function homePage() {
           <a href="/teacher" className="block px-4 py-2 rounded-md bg-green-500 text-white hover:bg-green-600 transition duration-300">Teacher Portal</a>
         </li>
         <li>
-          <a href="/student" className="block px-4 py-2 rounded-md bg-yellow-500 text-white hover:bg-yellow-600 transition duration-300">Student Portal</a>
+          <a href="/student_login" className="block px-4 py-2 rounded-md bg-yellow-500 text-white hover:bg-yellow-600 transition duration-300">Student Portal</a>
         </li>
       </ul>
     </div>
