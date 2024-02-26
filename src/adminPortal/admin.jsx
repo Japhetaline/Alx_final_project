@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
+import SettingsTab from './SettingsTab';
+import DepartmentTab from './DepartmentTab';
+import Admin_teacherPage from './Admin_teacherPage';
+import Admin_studentPage from './Admin_studentPage';
 import AddTeacherForm from './AddTeacherForm';
-import { data } from './AdminData';
+// import LineChart from './chart';
 
 function Admin() {
-  const [search, setSearch] = useState('');
-  const [activeTab, setActiveTab] = useState('USERS'); // Default active tab
+  const [activeTab, setActiveTab] = useState('');
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab); // Update active tab
+  };
 
   return (
     <>
@@ -12,20 +19,22 @@ function Admin() {
       <div className="mt-5">
         {/* Tabs */}
         <div>
-            <h1>Admin portal</h1>
+            <h1 className='flex justify-center text-2xl font-bold'>Welcome to Admin Dashboard</h1>
         </div>
         <div className="ml-5">
         <AddTeacherForm />
       </div>
         <div className="flex justify-end mb-5">
-          <button
-            className={`px-4 py-4 mr-4 bg-gray-200 hover:bg-gray-300 rounded-md ${
-              activeTab === 'USERS' && 'bg-gray-300'
-            }`}
-            onClick={() => setActiveTab('USERS')}
-          >
-            USERS
-          </button>
+           <button
+        type="button"
+        className={`px-4 py-4 mr-4 bg-gray-200 hover:bg-gray-300 rounded-md ${
+          activeTab === 'USERS' && 'bg-gray-300'
+        }`}
+        onClick={() => handleTabChange('USERS')}
+      >
+        USERS
+      </button>
+      {/* Dropdown menu */}
           <button
             className={`px-4 py-2 mr-4 bg-gray-200 hover:bg-gray-300 rounded-md ${
               activeTab === 'DEPARTMENTS' && 'bg-gray-300'
@@ -46,80 +55,49 @@ function Admin() {
 
         {/* Content based on active tab */}
         {activeTab === 'USERS' && (
-          <>
-            <form className="max-w-md mx-auto mb-4">
-            <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-    <div class="relative">
-        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-            </svg>
+        <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+          <div
+            className="py-1"
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="options-menu"
+          >
+            {/* Teacher section */}
+            <button
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left"
+              role="menuitem"
+              onClick={() => handleTabChange('TEACHERS')}
+            >
+              Teacher
+            </button>
+            {/* Student section */}
+            <button
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left"
+              role="menuitem"
+              onClick={() => handleTabChange('STUDENTS')}
+            >
+              Student
+            </button>
+          </div>
         </div>
-        <input onChange={(e) => setSearch(e.target.value)} type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Teacher by email" required />
-        <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
-    </div>
-            </form>
-            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                Teacher ID
-                </th>
-                <th scope="col" class="px-6 py-3">
-                Email
-                </th>
-                <th scope="col" class="px-6 py-3">
-                Full Names
-                </th>
-                <th scope="col" class="px-6 py-3">
-                Gender
-                </th>
-                <th scope="col" class="px-6 py-3">
-                Entry Year
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        {data.filter((item) => {
-            return search.toLowerCase() === ''
-            ? item
-            : item.Email.toLowerCase().includes(search);
-        }).map((item) => (
-    <tr key={item.id} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            {item['Teacher ID']}
-        </th>
-        <td class="px-6 py-4">
-            {item['Email']}
-        </td>
-        <td class="px-6 py-4">
-            {item['Full Names']}
-        </td>
-        <td class="px-6 py-4">
-            {item['Gender']}
-        </td>
-        <td class="px-6 py-4">
-            {item['Entry Year']}
-        </td>
-    </tr>
-))}
-        </tbody>
-            </table>
-          </>
-        )}
-
+      )}
+{/* Render form based on active tab */}
+      {activeTab === 'TEACHERS' && <Admin_teacherPage />}
+      {activeTab === 'STUDENTS' && <Admin_studentPage />}
         {activeTab === 'DEPARTMENTS' && (
           <>
-            {/* Department content */}
+            <DepartmentTab />
           </>
         )}
 
         {activeTab === 'SETTINGS' && (
           <>
-            {/* Settings content */}
+             <SettingsTab />
           </>
         )}
       </div>
+
+      {/* <LineChart /> */}
     </>
   );
 }

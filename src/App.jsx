@@ -5,7 +5,7 @@ import AdminPage from './adminPortal/admin'
 import StudentLogin from './studentPortal/Login'
 import StudentSignup from './studentPortal/SignUp'
 import StudentDashboard from './studentPortal/Dashboard'
-// import TeacherPage from './teacherPortal//TeacherSignIn/teacherSignIn'
+import TeacherPage from './teacherPortal/teacher'
 import './App.css'
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       <Route path="/student_signup" element={<StudentSignup />} />
       <Route path="/student_login" element={<StudentLogin />} />
       <Route path="/student_dashboard" element={<StudentDashboard />} />
-      {/* <Route path="/teacher" element={<TeacherPage />} /> */}
+      <Route path="/teacher" element={<TeacherPage />} />
       </Routes>
      </div>
      </BrowserRouter>

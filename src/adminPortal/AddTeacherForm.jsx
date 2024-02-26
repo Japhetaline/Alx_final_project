@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaUserPlus } from "react-icons/fa";
 
 const AddTeacherForm = () => {
     const [showForm, setShowForm] = useState(false);
@@ -9,8 +10,9 @@ const AddTeacherForm = () => {
 
     return (
         <div className="p-4">
-            <button onClick={handleButtonClick} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
-                {showForm ? 'Close Form' : 'Add New Teacher'}
+            <button  onClick={handleButtonClick} className=" flex bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+            <FaUserPlus fontSize={'20px'} className="mr-2" />
+               {showForm ? 'Close Form' : 'Add New Teacher'}
             </button>
 
             {showForm && (

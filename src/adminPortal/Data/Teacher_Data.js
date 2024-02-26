@@ -1,4 +1,4 @@
-export const data = [
+export const teacher_data = [
     {
   "Teacher ID": 1,
   "Email": "bbushnell0@posterous.com",
