@@ -9,6 +9,9 @@ function DepartmentTab() {
   <TabList>
     <Tab>MIT</Tab>
     <Tab>Engineering</Tab>
+    <Tab>Physiology</Tab>
+    <Tab>Medicine</Tab>
+    <Tab>Nursing</Tab>
   </TabList>
   <TabPanels>
     <TabPanel>
@@ -27,8 +30,36 @@ function DepartmentTab() {
   </TabPanels>
 </Tabs>
     </TabPanel>
+    //second tab
     <TabPanel>
-      <p>two!</p>
+    <TabList>
+    <Tab>Courses</Tab>
+    <Tab>Materials</Tab>
+  </TabList>
+    </TabPanel>
+
+//third tab
+    <TabPanel>
+    <TabList>
+    <Tab>Courses</Tab>
+    <Tab>Materials</Tab>
+  </TabList>
+    </TabPanel>
+
+//fourth tab
+    <TabPanel>
+    <TabList>
+    <Tab>Courses</Tab>
+    <Tab>Materials</Tab>
+  </TabList>
+    </TabPanel>
+
+//fifth tab
+    <TabPanel>
+    <TabList>
+    <Tab>Courses</Tab>
+    <Tab>Materials</Tab>
+  </TabList>
     </TabPanel>
   </TabPanels>
 </Tabs>
