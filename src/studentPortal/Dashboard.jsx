@@ -11,6 +11,21 @@ function StudentProfile({ name, imageUrl }) {
     );
   }
 
+  const StudentSubmissionTab = () => {
+    const [file, setFile] = useState(null);
+  
+    const handleFileChange = (e) => {
+      const selectedFile = e.target.files[0];
+      setFile(selectedFile);
+    };
+  
+    const handleSubmit = () => {
+      // Logic to handle submission
+      console.log('Submitting file:', file);
+      // You can implement your submission logic here, such as sending the file to the server
+    };
+  }
+
 const Dashboard = () => {
     const student = {
         name: "John Doe",
@@ -34,24 +49,142 @@ const Dashboard = () => {
   <TabPanels>
     <TabPanel>
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-4">Student Dashboard</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Profile</h2>
-          <StudentProfile name={student.name} imageUrl={student.imageUrl} />
+      <div className="max-w-md mx-auto bg-white rounded-lg overflow-hidden shadow-md">
+        <div className="px-6 py-4">
+          <div className="font-bold text-xl mb-2">Student Profile</div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+            <p className="text-gray-700">John Doe</p>
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">Age:</label>
+            <p className="text-gray-700">12</p>
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">Grade:</label>
+            <p className="text-gray-700">76%</p>
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">Address:</label>
+            <p className="text-gray-700">Greenwood street, Alabama, USA</p>
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">Contact:</label>
+            <p className="text-gray-700">4993400388</p>
+          </div>
         </div>
-        {/* Add other components for the dashboard */}
       </div>
     </div>
     </TabPanel>
     <TabPanel>
-    
+    <div className="max-w-lg mx-auto mt-8 p-4 border border-gray-300 rounded">
+      <h2 className="text-2xl font-bold mb-4">Assignment</h2>
+      <div>
+        <p className="mb-2"><span className="font-bold">Subject:</span> Mathematics</p>
+        <p className="mb-2"><span className="font-bold">Topic:</span> Algebra</p>
+        <p className="mb-2"><span className="font-bold">Due Date:</span> January 30, 2023</p>
+        {/* Add more assignment details here */}
+        Write history on creation of Slave trade
+      </div>
+    </div>
     </TabPanel>
     <TabPanel>
-    
+    <div className="max-w-lg mx-auto mt-8 p-4 border border-gray-300 rounded">
+      <h2 className="text-2xl font-bold mb-4">Courses</h2>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2" htmlFor="courseName">
+          Course Name
+        </label>
+        <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="courseName"
+          type="text"
+          placeholder="Enter course name"
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2" htmlFor="courseCode">
+          Course Code
+        </label>
+        <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="courseCode"
+          type="text"
+          placeholder="Enter course code"
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2" htmlFor="instructor">
+          Instructor
+        </label>
+        <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="instructor"
+          type="text"
+          placeholder="Enter instructor's name"
+        />
+      </div>
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="button"
+      >
+        Save
+      </button>
+    </div>
     </TabPanel>
     <TabPanel>
-      
+    <div className="max-w-lg mx-auto mt-8 p-4 border border-gray-300 rounded">
+      <h2 className="text-2xl font-bold mb-4">Scores</h2>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2" htmlFor="subject">
+          Subject
+        </label>
+        <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="subject"
+          type="text"
+          placeholder="Enter subject"
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2" htmlFor="score">
+          Score
+        </label>
+        <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="score"
+          type="text"
+          placeholder="Enter score"
+        />
+      </div>
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="button"
+      >
+        Save
+      </button>
+    </div>
+    </TabPanel>
+<TabPanel>
+    <div className="max-w-lg mx-auto mt-8 p-4 border border-gray-300 rounded">
+      <h2 className="text-2xl font-bold mb-4">Submission</h2>
+      <div className="mb-4">
+        <label htmlFor="file" className="block text-gray-700 font-bold mb-2">
+          Choose File
+        </label>
+        <input
+          type="file"
+          id="file"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          
+        />
+      </div>
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Submit
+      </button>
+    </div>
     </TabPanel>
   </TabPanels>
 </Tabs>
